@@ -11,7 +11,10 @@ class SpringDataRedisDemoApplicationTests {
     private RedisTemplate redisTemplate;
 
     @Test
-    void contextLoads() {
+    void testString() {
+        redisTemplate.opsForValue().set("name", "yyx2");
+        System.out.println(redisTemplate.opsForValue().get("name"));
+        redisTemplate.opsForValue().set("age", 18);
+        System.out.println(redisTemplate.opsForValue().get("age"));
     }
-
 }
