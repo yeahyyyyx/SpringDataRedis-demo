@@ -37,4 +37,10 @@ class RedisStringTests {
         User object = mapper.readValue(jsonUser, User.class);
         System.out.println(object);
     }
+    @Test
+    void testHash() {
+        stringRedisTemplate.opsForHash().put("user:400", "name", "yyx");
+        stringRedisTemplate.opsForHash().put("user:400", "age", "18");
+        System.out.println(stringRedisTemplate.opsForHash().entries("user:400"));
+    }
 }
